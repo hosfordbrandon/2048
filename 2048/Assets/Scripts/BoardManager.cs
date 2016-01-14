@@ -4,12 +4,13 @@ using System.Collections.Generic;
 public class BoardManager : MonoBehaviour {
 
 	public int size =4;
+	public GameObject[] tiles;
 
 	private List<Vector3> gridPositions = new List<Vector3>();
 
 	void Start () {
-		int startX = UnityEngine.Random.Range(0,5);
-		int startY = UnityEngine.Random.Range(0,5);
+		InitList();
+
 	}
 	
 
