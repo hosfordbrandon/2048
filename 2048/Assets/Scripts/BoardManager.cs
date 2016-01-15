@@ -10,6 +10,7 @@ public class BoardManager : MonoBehaviour {
 
 	void Start () {
 		InitList();
+		Place(tiles[0]);
 
 	}
 	
@@ -23,6 +24,9 @@ public class BoardManager : MonoBehaviour {
 				gridPositions.Add(new Vector3(i,j,0f));
 			}
 		}
+	}
+	void Place(GameObject tile){
+		//int pos = UnityEngine.Random.Range(0, gridPositions.)
 	}
 
 	// Update is called once per frame
