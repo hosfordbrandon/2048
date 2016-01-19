@@ -11,6 +11,7 @@ public class BoardManager : MonoBehaviour {
 	void Start () {
 		InitList();
 		Place(tiles[0]);
+		Place(tiles[0]);
 
 	}
 	
@@ -19,14 +20,16 @@ public class BoardManager : MonoBehaviour {
 	void InitList(){
 		gridPositions.Clear();
 
-		for(int i = 0; i<size+1;i++){
-			for(int j = 0; j<size+1;j++){
+		for(int i = 0; i<size;i++){
+			for(int j = 0; j<size;j++){
 				gridPositions.Add(new Vector3(i,j,0f));
 			}
 		}
 	}
 	void Place(GameObject tile){
-		//int pos = UnityEngine.Random.Range(0, gridPositions.)
+		int pos = UnityEngine.Random.Range(0, gridPositions.Count);
+		Debug.Log("This is the position! "+gridPositions[pos]);
+		GameObject instant = Instantiate(tile,gridPositions[pos],Quaternion.identity) as GameObject;
 	}
 
 	// Update is called once per frame
