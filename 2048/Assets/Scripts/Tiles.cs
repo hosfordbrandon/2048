@@ -20,14 +20,37 @@ public class Tiles : MonoBehaviour {
 
 		if(Input.GetKey(KeyCode.UpArrow)){
 			GOcollider.enabled = false;
-			RaycastHit2D rayHit = Physics2D.Raycast(transform.position+new Vector3(0.5f,0,0),Vector2.up);
-			Debug.DrawRay(transform.position+new Vector3(0.5f,0,0), Vector2.up,Color.red);
+			RaycastHit2D rayHit = Physics2D.Raycast(transform.position+new Vector3(0.5f,0.5f,0),Vector2.up);
+			Debug.DrawRay(transform.position+new Vector3(0.5f,0.5f,0), Vector2.up,Color.red);
 			GOcollider.enabled = true;
 			Debug.Log(rayHit.collider.gameObject.name);
 		}
 
 
+		else if(Input.GetKey(KeyCode.DownArrow)){
+			GOcollider.enabled = false;
+			RaycastHit2D rayHit = Physics2D.Raycast(transform.position+new Vector3(0.5f,0.5f,0),Vector2.down);
+			Debug.DrawRay(transform.position+new Vector3(0.5f,0.5f,0), Vector2.down,Color.red);
+			GOcollider.enabled = true;
+			Debug.Log(rayHit.collider.gameObject.name);
+		}
+
+
+		if(Input.GetKey(KeyCode.LeftArrow)){
+			GOcollider.enabled = false;
+			RaycastHit2D rayHit = Physics2D.Raycast(transform.position+new Vector3(0.5f,0.5f,0),Vector2.left);
+			Debug.DrawRay(transform.position+new Vector3(0.5f,0.5f,0), Vector2.up,Color.red);
+			GOcollider.enabled = true;
+			Debug.Log(rayHit.collider.gameObject.name);
+		}
+
+
+		if(Input.GetKey(KeyCode.RightArrow)){
+			GOcollider.enabled = false;
+			RaycastHit2D rayHit = Physics2D.Raycast(transform.position+new Vector3(0.5f,0.5f,0),Vector2.right);
+			Debug.DrawRay(transform.position+new Vector3(0.5f,0.5f,0), Vector2.right,Color.red);
+			GOcollider.enabled = true;
+			Debug.Log(rayHit.collider.gameObject.name);
+		}
 	}
-
-
 }
