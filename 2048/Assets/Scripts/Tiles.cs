@@ -58,7 +58,10 @@ public class Tiles : MonoBehaviour {
 	void move(RaycastHit2D ray, Vector2 direction){
 		Debug.Log(ray.distance);
 		if(direction == Vector2.up){
-			transform.position = new Vector3(transform.position.x,transform.position.y+ray.distance,0f);
+			transform.position = new Vector3(transform.position.x,transform.position.y+ray.distance-0.5f,0f);
+		}
+		if(direction == Vector2.down){
+			transform.position = new Vector3(transform.position.x,transform.position.y+ray.distance-0.5f,0f);
 		}
 	}
 }
