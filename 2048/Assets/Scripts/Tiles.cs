@@ -34,6 +34,7 @@ public class Tiles : MonoBehaviour {
 			Debug.DrawRay(transform.position+new Vector3(0.5f,0.5f,0), Vector2.down,Color.red);
 			GOcollider.enabled = true;
 			Debug.Log(rayHit.collider.gameObject.name);
+			move(rayHit,Vector2.down);
 		}
 
 
@@ -61,7 +62,7 @@ public class Tiles : MonoBehaviour {
 			transform.position = new Vector3(transform.position.x,transform.position.y+ray.distance-0.5f,0f);
 		}
 		if(direction == Vector2.down){
-			transform.position = new Vector3(transform.position.x,transform.position.y+ray.distance-0.5f,0f);
+			transform.position = new Vector3(transform.position.x,transform.position.y-ray.distance+0.5f,0f);
 		}
 	}
 }
