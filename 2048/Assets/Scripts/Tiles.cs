@@ -23,7 +23,6 @@ public class Tiles : MonoBehaviour {
 			RaycastHit2D rayHit = Physics2D.Raycast(transform.position+new Vector3(0.5f,0.5f,0),Vector2.up);
 			Debug.DrawRay(transform.position+new Vector3(0.5f,0.5f,0), Vector2.up,Color.red);
 			GOcollider.enabled = true;
-			Debug.Log(rayHit.collider.gameObject.name);
 			move(rayHit,Vector2.up);
 		}
 
@@ -33,7 +32,6 @@ public class Tiles : MonoBehaviour {
 			RaycastHit2D rayHit = Physics2D.Raycast(transform.position+new Vector3(0.5f,0.5f,0),Vector2.down);
 			Debug.DrawRay(transform.position+new Vector3(0.5f,0.5f,0), Vector2.down,Color.red);
 			GOcollider.enabled = true;
-			Debug.Log(rayHit.collider.gameObject.name);
 			move(rayHit,Vector2.down);
 		}
 
@@ -43,7 +41,6 @@ public class Tiles : MonoBehaviour {
 			RaycastHit2D rayHit = Physics2D.Raycast(transform.position+new Vector3(0.5f,0.5f,0),Vector2.left);
 			Debug.DrawRay(transform.position+new Vector3(0.5f,0.5f,0), Vector2.left,Color.red);
 			GOcollider.enabled = true;
-			Debug.Log(rayHit.collider.gameObject.name);
 			move(rayHit,Vector2.left);
 		}
 
@@ -53,13 +50,11 @@ public class Tiles : MonoBehaviour {
 			RaycastHit2D rayHit = Physics2D.Raycast(transform.position+new Vector3(0.5f,0.5f,0),Vector2.right);
 			Debug.DrawRay(transform.position+new Vector3(0.5f,0.5f,0), Vector2.right,Color.red);
 			GOcollider.enabled = true;
-			Debug.Log(rayHit.collider.gameObject.name);
 			move(rayHit,Vector2.right);
 		}
 	}
 
 	void move(RaycastHit2D ray, Vector2 direction){
-		Debug.Log(ray.distance);
 		if(direction == Vector2.up){
 			transform.position = new Vector3(transform.position.x,transform.position.y+ray.distance-0.5f,0f);
 		}
@@ -73,8 +68,11 @@ public class Tiles : MonoBehaviour {
 			transform.position = new Vector3(transform.position.x-ray.distance+0.5f,transform.position.y,0f);
 		}
 
-		if(ray.collider.gameObject.GetComponent<Tiles>().value == value){
-			Debug.Log("SAME VALUE");
+		if(ray.collider.gameObject.tag=="Tile"){
+			if(ray.collider.gameObject.GetComponent<Tiles>().value == value){
+				Debug.Log("SAME VALUE");
+			}
 		}
+
 	}
 }
