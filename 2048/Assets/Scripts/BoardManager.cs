@@ -12,10 +12,7 @@ public class BoardManager : MonoBehaviour {
 		InitList();
 		Place(tiles[0]);
 		Place(tiles[0]);
-
 	}
-	
-
 
 	void InitList(){
 		gridPositions.Clear();
