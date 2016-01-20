@@ -41,9 +41,10 @@ public class Tiles : MonoBehaviour {
 		if(Input.GetKey(KeyCode.LeftArrow)){
 			GOcollider.enabled = false;
 			RaycastHit2D rayHit = Physics2D.Raycast(transform.position+new Vector3(0.5f,0.5f,0),Vector2.left);
-			Debug.DrawRay(transform.position+new Vector3(0.5f,0.5f,0), Vector2.up,Color.red);
+			Debug.DrawRay(transform.position+new Vector3(0.5f,0.5f,0), Vector2.left,Color.red);
 			GOcollider.enabled = true;
 			Debug.Log(rayHit.collider.gameObject.name);
+			move(rayHit,Vector2.left);
 		}
 
 
@@ -53,6 +54,7 @@ public class Tiles : MonoBehaviour {
 			Debug.DrawRay(transform.position+new Vector3(0.5f,0.5f,0), Vector2.right,Color.red);
 			GOcollider.enabled = true;
 			Debug.Log(rayHit.collider.gameObject.name);
+			move(rayHit,Vector2.right);
 		}
 	}
 
@@ -63,6 +65,12 @@ public class Tiles : MonoBehaviour {
 		}
 		if(direction == Vector2.down){
 			transform.position = new Vector3(transform.position.x,transform.position.y-ray.distance+0.5f,0f);
+		}
+		if(direction == Vector2.right){
+			transform.position = new Vector3(transform.position.x+ray.distance-0.5f,transform.position.y,0f);
+		}
+		if(direction == Vector2.left){
+			transform.position = new Vector3(transform.position.x-ray.distance+0.5f,transform.position.y,0f);
 		}
 	}
 }
