@@ -72,5 +72,9 @@ public class Tiles : MonoBehaviour {
 		if(direction == Vector2.left){
 			transform.position = new Vector3(transform.position.x-ray.distance+0.5f,transform.position.y,0f);
 		}
+
+		if(ray.collider.gameObject.GetComponent<Tiles>().value == value){
+			Debug.Log("SAME VALUE");
+		}
 	}
 }
