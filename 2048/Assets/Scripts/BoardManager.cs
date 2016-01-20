@@ -10,8 +10,9 @@ public class BoardManager : MonoBehaviour {
 
 	void Start () {
 		InitList();
-		Place(tiles[0]);
-		Place(tiles[0]);
+		Place(Tiles[0]);
+		Place(Tiles[0]);
+
 	}
 
 	void InitList(){
@@ -23,7 +24,11 @@ public class BoardManager : MonoBehaviour {
 			}
 		}
 	}
+
+
 	void Place(GameObject tile){
+		List <Vector3> temp = gridPositions;
+
 		int pos = UnityEngine.Random.Range(0, gridPositions.Count);
 		Debug.Log("This is the position! "+gridPositions[pos]);
 		GameObject instant = Instantiate(tile,gridPositions[pos],Quaternion.identity) as GameObject;
