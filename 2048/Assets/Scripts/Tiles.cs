@@ -9,10 +9,13 @@ public class Tiles : MonoBehaviour {
 	private Rigidbody2D rBody;
 	private BoxCollider2D GOcollider;
 	private bool notCD = true;
+
+	private GameObject[] tiles;
 	// Use this for initialization
 	void Start () {
 		rBody = gameObject.GetComponent<Rigidbody2D>();
 		GOcollider = gameObject.GetComponent<BoxCollider2D>();
+		tiles = GameObject.Find("GM").GetComponent<GameObject[]>()
 	}
 	
 	// Update is called once per frame
@@ -70,9 +73,23 @@ public class Tiles : MonoBehaviour {
 
 		if(ray.collider.gameObject.tag=="Tile"){
 			if(ray.collider.gameObject.GetComponent<Tiles>().value == value){
+				GameObject toInstant;
+				for(int i = 0; i < tiles.Length;i++){
+					if(tiles[i].gameObject.name==gameObject.name){
+						toInstant = tiles[i+1];
+						combine(ray.collider.gameObject,toInstant);
+					}
+				}
 				Debug.Log("SAME VALUE");
 			}
 		}
 
+	}
+
+	void combine(GameObject hit,GameObject target){
+		Vector3 position = hit.transform.position;
+		GameObject.Destroy(hit);
+		GameObject.Destroy(gameObject);
+		GameObject instant = Instantiate(target,position,Quaternion.identity) as GameObject;
 	}
 }
