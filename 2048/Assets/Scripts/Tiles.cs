@@ -15,7 +15,7 @@ public class Tiles : MonoBehaviour {
 	void Start () {
 		rBody = gameObject.GetComponent<Rigidbody2D>();
 		GOcollider = gameObject.GetComponent<BoxCollider2D>();
-		tiles = GameObject.Find("GM").GetComponent<GameObject[]>()
+		tiles = GameObject.Find("GM").GetComponent<BoardManager>().tiles;
 	}
 	
 	// Update is called once per frame
