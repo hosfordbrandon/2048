@@ -19,9 +19,9 @@ public class Tiles : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 
-		if(Input.GetKey(KeyCode.UpArrow)){
+		if(Input.GetKeyDown(KeyCode.UpArrow)){
 			GOcollider.enabled = false;
 			RaycastHit2D rayHit = Physics2D.Raycast(transform.position+new Vector3(0.5f,0.5f,0),Vector2.up);
 			Debug.DrawRay(transform.position+new Vector3(0.5f,0.5f,0), Vector2.up,Color.red);
@@ -30,7 +30,7 @@ public class Tiles : MonoBehaviour {
 		}
 
 
-		else if(Input.GetKey(KeyCode.DownArrow)){
+		else if(Input.GetKeyDown(KeyCode.DownArrow)){
 			GOcollider.enabled = false;
 			RaycastHit2D rayHit = Physics2D.Raycast(transform.position+new Vector3(0.5f,0.5f,0),Vector2.down);
 			Debug.DrawRay(transform.position+new Vector3(0.5f,0.5f,0), Vector2.down,Color.red);
@@ -39,7 +39,7 @@ public class Tiles : MonoBehaviour {
 		}
 
 
-		if(Input.GetKey(KeyCode.LeftArrow)){
+		if(Input.GetKeyDown(KeyCode.LeftArrow)){
 			GOcollider.enabled = false;
 			RaycastHit2D rayHit = Physics2D.Raycast(transform.position+new Vector3(0.5f,0.5f,0),Vector2.left);
 			Debug.DrawRay(transform.position+new Vector3(0.5f,0.5f,0), Vector2.left,Color.red);
@@ -48,7 +48,7 @@ public class Tiles : MonoBehaviour {
 		}
 
 
-		if(Input.GetKey(KeyCode.RightArrow)){
+		if(Input.GetKeyDown(KeyCode.RightArrow)){
 			GOcollider.enabled = false;
 			RaycastHit2D rayHit = Physics2D.Raycast(transform.position+new Vector3(0.5f,0.5f,0),Vector2.right);
 			Debug.DrawRay(transform.position+new Vector3(0.5f,0.5f,0), Vector2.right,Color.red);
