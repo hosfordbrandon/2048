@@ -10,8 +10,9 @@ public class BoardManager : MonoBehaviour {
 
 	void Start () {
 		InitList();
-//		Place(Tiles[0]);
-//		Place(Tiles[0]);
+		Place(Tiles[0]);
+		Place(Tiles[0]);
+		//hello
 
 	}
 
