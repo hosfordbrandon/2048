@@ -5,7 +5,7 @@ public class BoardManager : MonoBehaviour {
 
 	public int size =4;
 	public GameObject[] tiles;
-	public Camera cam;
+	public Camera camera;
 
 	private List<Vector3> gridPositions = new List<Vector3>();
 
@@ -14,6 +14,7 @@ public class BoardManager : MonoBehaviour {
 		Place(tiles[0]);
 		Place(tiles[0]);
 		//hello
+	
 
 	}
 
@@ -30,20 +31,17 @@ public class BoardManager : MonoBehaviour {
 
 	void ScanGrid(){
 		gridPositions.Clear();
-		
-		for(int i = 0; i<size;i++){
-			for(int j = 0; j<size;j++){
-				RaycastHit2D hit;
-				Ray ray = cam.ScreenPointToRay(new Vector2(i,j));
-				if(Physics2D.Raycast(ray, out hit)){
-					GameObject objHit = hit.collider.gameObject;
-					if(objHit.tag!="Tile"){
-						gridPositions.Add(new Vector3(i,j,0f));
-					}
+
+		//for(int i = 0; i<size;i++){
+			//for(int j = 0; j<size;j++){
+				RaycastHit2D hit = Physics2D.Raycast(new Vector2(camera.ScreenToWorldPoint(Input.mousePosition).x,camera.ScreenToWorldPoint(Input.mousePosition).y), Vector2.zero, 0f);
+				if(hit.collider.gameObject.tag!="Tile"){
+					Debug.Log("HIT TILE "+ hit.collider.transform.position);
+					//gridPositions.Add(new Vector3(i,j,0f));
 				}
-			}
-		}
-		Debug.Log(gridPositions);
+			//}
+		//}
+		//Debug.Log(gridPositions);
 	}
 
 	void Place(GameObject tile){
@@ -61,3 +59,4 @@ public class BoardManager : MonoBehaviour {
 		}
 	}
 }
+;
